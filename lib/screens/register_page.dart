@@ -68,17 +68,25 @@ class _RegisterPageState extends State<RegisterPage> {
               key: _registerFormKey,
               child: Column(children: <Widget>[
                 Container(
-                  padding: EdgeInsets.all(40.0),
+                  padding: EdgeInsets.all(10.0),
                   child: Image(
                     image: AssetImage('assets/images/logos/logo_color.png'),
                   ),
                 ),
-                Padding(padding: EdgeInsets.all(20.0)),
+                Padding(padding: EdgeInsets.all(10.0)),
+                Image(
+                  width: 100,
+                  image: AssetImage('assets/images/others/signin.png'),
+                ),
+                Padding(padding: EdgeInsets.all(10.0)),
                 // child: Column(children: <Widget>[
                 //   CupertinoFormSection.insetGrouped(
                 //     header: const Text('SECTION 1'),
                 //     children: <Widget>[
-                const Text('ユーザーネーム'),
+                const Text(
+                  'ユーザーネーム',
+                  style: TextStyle(color: Colors.black, fontSize: 16),
+                ),
                 CupertinoTextFormFieldRow(
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.grey.shade200),
@@ -93,7 +101,10 @@ class _RegisterPageState extends State<RegisterPage> {
                   },
                 ),
                 Padding(padding: EdgeInsets.all(10.0)),
-                const Text('メールアドレス'),
+                const Text(
+                  'メールアドレス',
+                  style: TextStyle(color: Colors.black, fontSize: 16),
+                ),
                 CupertinoTextFormFieldRow(
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.grey.shade200),
@@ -105,7 +116,10 @@ class _RegisterPageState extends State<RegisterPage> {
                   validator: emailValidator,
                 ),
                 Padding(padding: EdgeInsets.all(10.0)),
-                const Text('パスワード'),
+                const Text(
+                  'パスワード',
+                  style: TextStyle(color: Colors.black, fontSize: 16),
+                ),
                 CupertinoTextFormFieldRow(
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.grey.shade200),

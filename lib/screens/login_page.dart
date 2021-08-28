@@ -60,7 +60,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget loginscreen() {
     return Center(
       child: Container(
-          padding: const EdgeInsets.all(20.0),
+          padding: const EdgeInsets.all(18.0),
           child: SingleChildScrollView(
             child: Form(
               key: _loginFormKey,
@@ -76,7 +76,10 @@ class _LoginPageState extends State<LoginPage> {
                 // backgroundColor: Colors.white,
                 // header: const Text('SECTION 1'),
                 // children: <Widget>[
-                const Text('メールアドレス'),
+                const Text(
+                  'メールアドレス',
+                  style: TextStyle(color: Colors.black, fontSize: 16),
+                ),
                 CupertinoTextFormFieldRow(
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.grey.shade200),
@@ -88,7 +91,10 @@ class _LoginPageState extends State<LoginPage> {
                   validator: emailValidator,
                 ),
                 Padding(padding: EdgeInsets.all(10.0)),
-                const Text('パスワード'),
+                const Text(
+                  'パスワード',
+                  style: TextStyle(color: Colors.black, fontSize: 16),
+                ),
                 CupertinoTextFormFieldRow(
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.grey.shade200),

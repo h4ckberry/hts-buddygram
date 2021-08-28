@@ -85,6 +85,10 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   # fonts:
+  #   - family: NotoSansJP-Bold
+  #     fonts:
+  #       - asset: fonts/NotoSansJP/NotoSansJP-Bold.otf
+  # fonts:
   #   - family: Schyler
   #     fonts:
   #       - asset: fonts/Schyler-Regular.ttf
