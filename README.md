@@ -1,4 +1,6 @@
+
 # hts_buddygram
+Demo app for spajam2021
 
 ## Requirement
 
