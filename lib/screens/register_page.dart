@@ -51,7 +51,7 @@ class _RegisterPageState extends State<RegisterPage> {
       child: Stack(
         children: [
           Container(
-            decoration: new BoxDecoration(image: new DecorationImage(image: new AssetImage("assets/images/background/login_back.png"), fit: BoxFit.fill)),
+            decoration: new BoxDecoration(image: new DecorationImage(image: new AssetImage("assets/images/background/login_back.png"), fit: BoxFit.fitWidth)),
           ),
           registerscreen(),
         ],
@@ -68,19 +68,19 @@ class _RegisterPageState extends State<RegisterPage> {
             key: _registerFormKey,
             child: Column(children: <Widget>[
               Container(
-                padding: EdgeInsets.all(10.0),
+                padding: const EdgeInsets.only(top: 50, right: 20, bottom: 5, left: 20),
                 child: Image(
-                  width: 300,
+                  width: 250,
                   image: AssetImage('assets/images/logos/logo_color.png'),
                   fit: BoxFit.contain,
                 ),
               ),
-              Padding(padding: EdgeInsets.all(10.0)),
+              // Padding(padding: EdgeInsets.all(10.0)),
               Image(
                 width: 100,
                 image: AssetImage('assets/images/others/signin.png'),
               ),
-              Padding(padding: EdgeInsets.all(10.0)),
+              Padding(padding: EdgeInsets.all(3.0)),
               // child: Column(children: <Widget>[
               //   CupertinoFormSection.insetGrouped(
               //     header: const Text('SECTION 1'),
@@ -103,7 +103,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   }
                 },
               ),
-              Padding(padding: EdgeInsets.all(10.0)),
+              Padding(padding: EdgeInsets.all(3.0)),
               const Text(
                 'メールアドレス',
                 style: TextStyle(color: Colors.black, fontSize: 16),
@@ -119,7 +119,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 keyboardType: TextInputType.emailAddress,
                 validator: emailValidator,
               ),
-              Padding(padding: EdgeInsets.all(10.0)),
+              Padding(padding: EdgeInsets.all(3.0)),
               const Text(
                 'パスワード',
                 style: TextStyle(color: Colors.black, fontSize: 16),
@@ -137,7 +137,7 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
               //   ],
               // ),
-              Padding(padding: EdgeInsets.all(20.0)),
+              Padding(padding: EdgeInsets.all(10.0)),
               GestureDetector(
                 onTap: () {
                   if (_registerFormKey.currentState!.validate()) {
@@ -176,7 +176,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   fit: BoxFit.contain,
                 ),
               ),
-              Padding(padding: EdgeInsets.all(20.0)),
+              Padding(padding: EdgeInsets.all(10.0)),
               GestureDetector(
                 onTap: () {
                   Navigator.pop(context);

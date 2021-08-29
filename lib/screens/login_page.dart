@@ -48,7 +48,7 @@ class _LoginPageState extends State<LoginPage> {
       child: Stack(
         children: [
           Container(
-            decoration: new BoxDecoration(image: new DecorationImage(image: new AssetImage("assets/images/background/login_back.png"), fit: BoxFit.fill)),
+            decoration: new BoxDecoration(image: new DecorationImage(image: new AssetImage("assets/images/background/login_back.png"), fit: BoxFit.fitWidth)),
           ),
           loginscreen(),
         ],
@@ -60,20 +60,20 @@ class _LoginPageState extends State<LoginPage> {
   Widget loginscreen() {
     return Center(
       child: Container(
-        padding: const EdgeInsets.all(18.0),
+        padding: const EdgeInsets.only(top: 50, right: 20, bottom: 5, left: 20),
         child: SingleChildScrollView(
           child: Form(
             key: _loginFormKey,
             child: Column(children: <Widget>[
               Container(
-                padding: EdgeInsets.all(40.0),
+                padding: EdgeInsets.all(20.0),
                 child: Image(
-                  width: 300,
+                  width: 250,
                   image: AssetImage('assets/images/logos/logo_color.png'),
                   fit: BoxFit.contain,
                 ),
               ),
-              Padding(padding: EdgeInsets.all(20.0)),
+              // Padding(padding: EdgeInsets.all(5.0)),
               const Text(
                 'メールアドレス',
                 style: TextStyle(color: Colors.black, fontSize: 16),
@@ -89,7 +89,7 @@ class _LoginPageState extends State<LoginPage> {
                 keyboardType: TextInputType.emailAddress,
                 validator: emailValidator,
               ),
-              Padding(padding: EdgeInsets.all(10.0)),
+              Padding(padding: EdgeInsets.all(3.0)),
               const Text(
                 'パスワード',
                 style: TextStyle(color: Colors.black, fontSize: 16),
@@ -107,7 +107,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               // ],
               // ),
-              Padding(padding: EdgeInsets.all(20.0)),
+              Padding(padding: EdgeInsets.all(5.0)),
               GestureDetector(
                 onTap: () {
                   if (_loginFormKey.currentState!.validate()) {
@@ -131,7 +131,7 @@ class _LoginPageState extends State<LoginPage> {
                   fit: BoxFit.contain,
                 ),
               ),
-              Padding(padding: EdgeInsets.all(20.0)),
+              Padding(padding: EdgeInsets.all(5.0)),
               GestureDetector(
                 onTap: () {
                   Navigator.pushNamed(context, "/register");

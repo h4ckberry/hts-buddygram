@@ -34,6 +34,7 @@ class _BaseAppState extends State<BaseApp> {
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
 
     return CupertinoApp(
+        debugShowCheckedModeBanner: false,
         theme: CupertinoThemeData(
           textTheme: CupertinoTextThemeData(
             textStyle: GoogleFonts.notoSans(
@@ -115,6 +116,33 @@ class _HomePageState extends State<HomePage> {
 
       Navigator.pushNamed(context, "/result", arguments: largestFace.smilingProbability);
       // Navigator.push(context, MaterialPageRoute(builder: (context) => ResultPage()));
+    } else {
+      // Navigator.pop(context);
+      await new Future.delayed(new Duration(seconds: 1), () {});
+      Navigator.pop(context);
+
+      // showGeneralDialog(
+      //     context: context,
+      //     barrierDismissible: false,
+      //     transitionDuration: Duration(milliseconds: 300),
+      //     barrierColor: Colors.black.withOpacity(0.5),
+      //     pageBuilder: (BuildContext context, Animation animation, Animation secondaryAnimation) {
+      //       return CupertinoAlertDialog(
+      //         title: Text("パートナーが見つかりませんでした"),
+      //         content: Text("もう一度実行してください"),
+      //         actions: <Widget>[
+      //           CupertinoDialogAction(
+      //             child: Text("OK"),
+      //             isDestructiveAction: true,
+      //             onPressed: () => Navigator.pop(context),
+      //           ),
+      //         ],
+      //       );
+      //     });
+
+      // await new Future.delayed(new Duration(seconds: 3), () {});
+      // // await new Future.delayed(new Duration(seconds: 1), () {});
+      // Navigator.pop(context);
     }
     // Navigator.push(context, MaterialPageRoute(builder: (context) => ResultPage()));
   }

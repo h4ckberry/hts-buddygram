@@ -45,15 +45,15 @@ dependencies:
 
 flutter_native_splash:
   # image: "assets/images/background/splash_back.png"
-  background: "assets/images/background/splash_back.png"
+  background_image: "assets/images/background/splash_back.png"
   # fullscreen: true
-  # fill: true
+  fill_vertical: true
   # color: "#FFFFFF"
 
 flutter_icons:
   # android: true
   ios: true
-  image_path: "assets/images/icons/Icon.png"
+  image_path: "assets/images/icons/512x512.png"
 
 dev_dependencies:
   flutter_test:
