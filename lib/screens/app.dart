@@ -121,25 +121,24 @@ class _HomePageState extends State<HomePage> {
       await new Future.delayed(new Duration(seconds: 1), () {});
       Navigator.pop(context);
 
-      // showGeneralDialog(
-      //     context: context,
-      //     barrierDismissible: false,
-      //     transitionDuration: Duration(milliseconds: 300),
-      //     barrierColor: Colors.black.withOpacity(0.5),
-      //     pageBuilder: (BuildContext context, Animation animation, Animation secondaryAnimation) {
-      //       return CupertinoAlertDialog(
-      //         title: Text("パートナーが見つかりませんでした"),
-      //         content: Text("もう一度実行してください"),
-      //         actions: <Widget>[
-      //           CupertinoDialogAction(
-      //             child: Text("OK"),
-      //             isDestructiveAction: true,
-      //             onPressed: () => Navigator.pop(context),
-      //           ),
-      //         ],
-      //       );
-      //     });
-
+      showGeneralDialog(
+          context: context,
+          barrierDismissible: false,
+          transitionDuration: Duration(milliseconds: 300),
+          barrierColor: Colors.black.withOpacity(0.5),
+          pageBuilder: (BuildContext context, Animation animation, Animation secondaryAnimation) {
+            return CupertinoAlertDialog(
+              title: Text("パートナーが見つかりませんでした"),
+              content: Text("もう一度実行してください"),
+              actions: <Widget>[
+                CupertinoDialogAction(
+                  child: Text("OK"),
+                  isDestructiveAction: true,
+                  onPressed: () => Navigator.pop(context),
+                ),
+              ],
+            );
+          });
       // await new Future.delayed(new Duration(seconds: 3), () {});
       // // await new Future.delayed(new Duration(seconds: 1), () {});
       // Navigator.pop(context);
@@ -195,6 +194,7 @@ class _HomePageState extends State<HomePage> {
                   GestureDetector(
                     onTap: () {
                       _getImageAndFindFace(context, ImageSource.gallery);
+                      if (!_isDog) {}
                     },
                     child: Image(
                       width: 200,
