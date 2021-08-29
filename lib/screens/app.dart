@@ -71,6 +71,18 @@ class _HomePageState extends State<HomePage> {
     final File imageFile = File(pickedImage!.path);
 
     final InputImage visionImage = InputImage.fromFile(imageFile);
+
+    showGeneralDialog(
+        context: context,
+        barrierDismissible: false,
+        transitionDuration: Duration(milliseconds: 300),
+        barrierColor: Colors.black.withOpacity(0.5),
+        pageBuilder: (BuildContext context, Animation animation, Animation secondaryAnimation) {
+          return Center(
+            child: CircularProgressIndicator(),
+          );
+        });
+
     List<Face> faces = await _faceDetector.processImage(visionImage);
     List<ImageLabel> labels = await imageLabeler.processImage(visionImage);
 
@@ -97,6 +109,10 @@ class _HomePageState extends State<HomePage> {
       //     .collection("smiles")
       //     .add({"name": _name, "smile_prob": largestFace.smilingProbability, "image_url": downloadUrl, "date": Timestamp.now(), "label": labels[0], "label2": labels[1], "label3": labels[2]});
       print("########## ${largestFace.smilingProbability} ##########");
+
+      await new Future.delayed(new Duration(seconds: 3), () {});
+      Navigator.pop(context);
+
       Navigator.pushNamed(context, "/result", arguments: largestFace.smilingProbability);
       // Navigator.push(context, MaterialPageRoute(builder: (context) => ResultPage()));
     }

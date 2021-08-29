@@ -87,10 +87,15 @@ class ResultPage extends StatelessWidget {
                     fit: BoxFit.contain,
                   ),
                   Padding(padding: EdgeInsets.all(10.0)),
-                  Image(
-                    width: 250,
-                    image: AssetImage('assets/images/buttons/btn_re.png'),
-                    fit: BoxFit.contain,
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: Image(
+                      width: 250,
+                      image: AssetImage('assets/images/buttons/btn_re.png'),
+                      fit: BoxFit.contain,
+                    ),
                   ),
                 ],
               ),
