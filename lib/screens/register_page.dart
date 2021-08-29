@@ -63,133 +63,133 @@ class _RegisterPageState extends State<RegisterPage> {
     return Center(
       child: Container(
         padding: const EdgeInsets.all(20.0),
-        // child: SingleChildScrollView(
-        child: Form(
-          key: _registerFormKey,
-          child: Column(children: <Widget>[
-            Container(
-              padding: EdgeInsets.all(10.0),
-              child: Image(
-                width: 300,
-                image: AssetImage('assets/images/logos/logo_color.png'),
-                fit: BoxFit.contain,
+        child: SingleChildScrollView(
+          child: Form(
+            key: _registerFormKey,
+            child: Column(children: <Widget>[
+              Container(
+                padding: EdgeInsets.all(10.0),
+                child: Image(
+                  width: 300,
+                  image: AssetImage('assets/images/logos/logo_color.png'),
+                  fit: BoxFit.contain,
+                ),
               ),
-            ),
-            Padding(padding: EdgeInsets.all(10.0)),
-            Image(
-              width: 100,
-              image: AssetImage('assets/images/others/signin.png'),
-            ),
-            Padding(padding: EdgeInsets.all(10.0)),
-            // child: Column(children: <Widget>[
-            //   CupertinoFormSection.insetGrouped(
-            //     header: const Text('SECTION 1'),
-            //     children: <Widget>[
-            const Text(
-              'ユーザーネーム',
-              style: TextStyle(color: Colors.black, fontSize: 16),
-            ),
-            CupertinoTextFormFieldRow(
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.grey.shade400),
-                borderRadius: BorderRadius.circular(8),
+              Padding(padding: EdgeInsets.all(10.0)),
+              Image(
+                width: 100,
+                image: AssetImage('assets/images/others/signin.png'),
               ),
-              placeholder: 'username',
-              style: TextStyle(color: Colors.grey.shade400),
-              controller: nameInputController,
-              validator: (value) {
-                if (value != null && value.length < 3) {
-                  return "名前は3文字以上で入力してください";
-                }
-              },
-            ),
-            Padding(padding: EdgeInsets.all(10.0)),
-            const Text(
-              'メールアドレス',
-              style: TextStyle(color: Colors.black, fontSize: 16),
-            ),
-            CupertinoTextFormFieldRow(
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.grey.shade400),
-                borderRadius: BorderRadius.circular(8),
+              Padding(padding: EdgeInsets.all(10.0)),
+              // child: Column(children: <Widget>[
+              //   CupertinoFormSection.insetGrouped(
+              //     header: const Text('SECTION 1'),
+              //     children: <Widget>[
+              const Text(
+                'ユーザーネーム',
+                style: TextStyle(color: Colors.black, fontSize: 16),
               ),
-              placeholder: 'mial.@spajam.jp',
-              style: TextStyle(color: Colors.grey.shade400),
-              controller: emailInputController,
-              keyboardType: TextInputType.emailAddress,
-              validator: emailValidator,
-            ),
-            Padding(padding: EdgeInsets.all(10.0)),
-            const Text(
-              'パスワード',
-              style: TextStyle(color: Colors.black, fontSize: 16),
-            ),
-            CupertinoTextFormFieldRow(
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.grey.shade400),
-                borderRadius: BorderRadius.circular(8),
+              CupertinoTextFormFieldRow(
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.grey.shade400),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                placeholder: 'username',
+                style: TextStyle(color: Colors.grey.shade400),
+                controller: nameInputController,
+                validator: (value) {
+                  if (value != null && value.length < 3) {
+                    return "名前は3文字以上で入力してください";
+                  }
+                },
               ),
-              placeholder: 'password',
-              style: TextStyle(color: Colors.grey.shade400),
-              controller: pwdInputController,
-              obscureText: true,
-              validator: pwdValidator,
-            ),
-            //   ],
-            // ),
-            Padding(padding: EdgeInsets.all(20.0)),
-            GestureDetector(
-              onTap: () {
-                if (_registerFormKey.currentState!.validate()) {
-                  FirebaseAuth.instance
-                      .createUserWithEmailAndPassword(
-                        email: emailInputController.text,
-                        password: pwdInputController.text,
-                      )
-                      .then((currentUser) => FirebaseFirestore.instance
-                          .collection("users")
-                          .doc(currentUser.user!.uid)
-                          .set({
-                            "uid": currentUser.user!.uid,
-                            "name": nameInputController.text,
-                            "email": emailInputController.text,
-                          })
-                          .then((result) => {
-                                Navigator.pushAndRemoveUntil(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => HomePage(
-                                            // uid: currentUser.user!.uid,
-                                            )),
-                                    (_) => false),
-                                nameInputController.clear(),
-                                emailInputController.clear(),
-                                pwdInputController.clear(),
-                              })
-                          .catchError((err) => print(err)))
-                      .catchError((err) => print(err));
-                }
-              },
-              child: Image(
-                width: 200,
-                image: AssetImage('assets/images/buttons/btn_regist.png'),
-                fit: BoxFit.contain,
+              Padding(padding: EdgeInsets.all(10.0)),
+              const Text(
+                'メールアドレス',
+                style: TextStyle(color: Colors.black, fontSize: 16),
               ),
-            ),
-            Padding(padding: EdgeInsets.all(20.0)),
-            GestureDetector(
-              onTap: () {
-                Navigator.pop(context);
-              },
-              child: Image(
-                width: 200,
-                image: AssetImage('assets/images/buttons/btn_registed.png'),
-                fit: BoxFit.contain,
+              CupertinoTextFormFieldRow(
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.grey.shade400),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                placeholder: 'mial.@spajam.jp',
+                style: TextStyle(color: Colors.grey.shade400),
+                controller: emailInputController,
+                keyboardType: TextInputType.emailAddress,
+                validator: emailValidator,
               ),
-            ),
-          ]),
+              Padding(padding: EdgeInsets.all(10.0)),
+              const Text(
+                'パスワード',
+                style: TextStyle(color: Colors.black, fontSize: 16),
+              ),
+              CupertinoTextFormFieldRow(
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.grey.shade400),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                placeholder: 'password',
+                style: TextStyle(color: Colors.grey.shade400),
+                controller: pwdInputController,
+                obscureText: true,
+                validator: pwdValidator,
+              ),
+              //   ],
+              // ),
+              Padding(padding: EdgeInsets.all(20.0)),
+              GestureDetector(
+                onTap: () {
+                  if (_registerFormKey.currentState!.validate()) {
+                    FirebaseAuth.instance
+                        .createUserWithEmailAndPassword(
+                          email: emailInputController.text,
+                          password: pwdInputController.text,
+                        )
+                        .then((currentUser) => FirebaseFirestore.instance
+                            .collection("users")
+                            .doc(currentUser.user!.uid)
+                            .set({
+                              "uid": currentUser.user!.uid,
+                              "name": nameInputController.text,
+                              "email": emailInputController.text,
+                            })
+                            .then((result) => {
+                                  Navigator.pushAndRemoveUntil(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => HomePage(
+                                              // uid: currentUser.user!.uid,
+                                              )),
+                                      (_) => false),
+                                  nameInputController.clear(),
+                                  emailInputController.clear(),
+                                  pwdInputController.clear(),
+                                })
+                            .catchError((err) => print(err)))
+                        .catchError((err) => print(err));
+                  }
+                },
+                child: Image(
+                  width: 250,
+                  image: AssetImage('assets/images/buttons/btn_regist.png'),
+                  fit: BoxFit.contain,
+                ),
+              ),
+              Padding(padding: EdgeInsets.all(20.0)),
+              GestureDetector(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: Image(
+                  width: 250,
+                  image: AssetImage('assets/images/buttons/btn_registed.png'),
+                  fit: BoxFit.contain,
+                ),
+              ),
+            ]),
+          ),
         ),
-        // ),
       ),
     );
   }

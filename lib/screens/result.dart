@@ -50,24 +50,27 @@ class ResultPage extends StatelessWidget {
                         child: Container(
                           height: 250,
                           padding: EdgeInsets.all(30.0),
-                          child: PieChart(
-                            colorList: [Color.fromRGBO(251, 255, 0, 1), Color.fromRGBO(0, 208, 230, 1)],
-                            animationDuration: Duration(milliseconds: 800),
-                            dataMap: {
-                              "result": _sync_rate,
-                              "none": (100 - _sync_rate),
-                            },
-                            chartType: ChartType.ring,
-                            ringStrokeWidth: 60,
-                            legendOptions: LegendOptions(
-                              showLegendsInRow: false,
-                              showLegends: false,
-                            ),
-                            chartValuesOptions: ChartValuesOptions(
-                              showChartValueBackground: false,
-                              showChartValues: false,
-                              showChartValuesInPercentage: false,
-                              showChartValuesOutside: false,
+                          child: new RotatedBox(
+                            quarterTurns: -1,
+                            child: PieChart(
+                              colorList: [Color.fromRGBO(251, 255, 0, 1), Color.fromRGBO(0, 208, 230, 1)],
+                              animationDuration: Duration(milliseconds: 800),
+                              dataMap: {
+                                "result": _sync_rate,
+                                "none": (100 - _sync_rate),
+                              },
+                              chartType: ChartType.ring,
+                              ringStrokeWidth: 60,
+                              legendOptions: LegendOptions(
+                                showLegendsInRow: false,
+                                showLegends: false,
+                              ),
+                              chartValuesOptions: ChartValuesOptions(
+                                showChartValueBackground: false,
+                                showChartValues: false,
+                                showChartValuesInPercentage: false,
+                                showChartValuesOutside: false,
+                              ),
                             ),
                           ),
                         ),

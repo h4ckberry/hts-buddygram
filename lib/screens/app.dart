@@ -24,7 +24,7 @@ class _BaseAppState extends State<BaseApp> {
   initState() {
     User? user = FirebaseAuth.instance.currentUser;
     if (user != null) {
-      _isLogin = true;
+      // _isLogin = true;
     }
     super.initState();
   }
