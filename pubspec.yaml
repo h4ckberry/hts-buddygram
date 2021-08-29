@@ -44,8 +44,10 @@ dependencies:
   pie_chart: ^5.0.0
 
 flutter_native_splash:
-  image: "assets/images/background/splash_back.png"
-  fullscreen: true
+  # image: "assets/images/background/splash_back.png"
+  background: "assets/images/background/splash_back.png"
+  # fullscreen: true
+  # fill: true
   # color: "#FFFFFF"
 
 flutter_icons:
