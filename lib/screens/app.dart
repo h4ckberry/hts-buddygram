@@ -96,8 +96,9 @@ class _HomePageState extends State<HomePage> {
       // FirebaseFirestore.instance
       //     .collection("smiles")
       //     .add({"name": _name, "smile_prob": largestFace.smilingProbability, "image_url": downloadUrl, "date": Timestamp.now(), "label": labels[0], "label2": labels[1], "label3": labels[2]});
-
-      Navigator.push(context, MaterialPageRoute(builder: (context) => ResultPage()));
+      print("########## ${largestFace.smilingProbability} ##########");
+      Navigator.pushNamed(context, "/result", arguments: largestFace.smilingProbability);
+      // Navigator.push(context, MaterialPageRoute(builder: (context) => ResultPage()));
     }
     // Navigator.push(context, MaterialPageRoute(builder: (context) => ResultPage()));
   }
@@ -128,31 +129,25 @@ class _HomePageState extends State<HomePage> {
               padding: const EdgeInsets.all(40.0),
               child: Column(
                 children: [
+                  Padding(padding: EdgeInsets.all(20.0)),
                   Image(
                     height: 100,
                     image: AssetImage('assets/images/logos/logo_white.png'),
                     fit: BoxFit.contain,
                   ),
-                  Padding(padding: EdgeInsets.all(20.0)),
-                  Text(
-                    '''
-            Buddygramへようこそ。
-            あなたと動物の相性を診断します。
-
-            バディースコア（相性）が高い動物となら、
-            どんな困難もきっと乗り切れるはずです。
-
-            さあ、早速診断を始めましょう！
-            ''',
-                    textAlign: TextAlign.center,
+                  Padding(padding: EdgeInsets.all(5.0)),
+                  Image(
+                    width: 300,
+                    image: AssetImage('assets/images/others/text.png'),
+                    fit: BoxFit.contain,
                   ),
-                  Padding(padding: EdgeInsets.all(10.0)),
+                  Padding(padding: EdgeInsets.all(5.0)),
                   Image(
                     height: 100,
                     image: AssetImage('assets/images/others/line.png'),
                     fit: BoxFit.contain,
                   ),
-                  Padding(padding: EdgeInsets.all(10.0)),
+                  Padding(padding: EdgeInsets.all(5.0)),
                   GestureDetector(
                     onTap: () {
                       _getImageAndFindFace(context, ImageSource.gallery);
